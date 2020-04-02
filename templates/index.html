@@ -4,5 +4,11 @@
 {% block content %}
 
     <div>Web page for notes</div>
+    <h2>All notes</h2>
+    <ol>
+        {% for notes in notes_list %}
+            <li>{{ notes }}</li>
+        {% endfor %}
+    </ol>
 
 {% endblock %}
