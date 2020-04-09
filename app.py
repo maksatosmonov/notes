@@ -20,12 +20,19 @@ def add_note_form():
 
 @app.route("/add-note", methods=["POST"])
 def add_note():
-    note = request.form["new-note"]
-    notes_file = open("notes.txt", "a+", encoding="utf-8")
-    notes_file.write(note + "\n")
+    note = request.form.get("note")
+    date = request.form.get("date")
+    notes_file = open('notes.txt', 'a+', encoding="utf-8")
+    notes_file.write(str(date) + " " + str(note) + "\n")
     notes_file.close()
     return render_template("success.html")
 
+@app.route("/table")
+def table():
+    notes_file = open("notes.txt", "r", encoding="utf-8")
+    rows = [[row[:10], row[10:].strip()] for row in notes_file]
+    notes_file.close()
+    return render_template("table.html", rows=rows)
 
 
 

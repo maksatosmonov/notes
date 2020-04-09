@@ -7,9 +7,11 @@
 </head>
 <body>
     <div>
-        <a href="{{ url_for('index') }}">Main page</a>
-        <a href="{{ url_for('hello', user_name='anonimus') }}">Hello</a>
-        <a href="{{ url_for('add_note_form') }}">Add notes</a>
+        <a href="{{ url_for('index') }}">Main page</a>|
+        <a href="{{ url_for('table') }}">Table</a>|
+        <a href="{{ url_for('hello', user_name='anonimus') }}">Hello</a>|
+        <a href="{{ url_for('add_note_form') }}">Add notes</a>|
+        
     </div>
     <hr>
     {% block content %}
